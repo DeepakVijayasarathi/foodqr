@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: foodqr_app
+    container_name: foodqr_app
+    ports:
+      - "8080:80"
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=1
+      - DB_HOST=195.35.7.84
+      - DB_PORT=3306
+      - DB_DATABASE=client_food
+      - DB_USERNAME=client_food
+      - DB_PASSWORD="!Deepakiucs@2025"
+    volumes:
+      - ./:/var/www/html
+      - vendor:/var/www/html/vendor
+      - node_modules:/var/www/html/node_modules
+      - storage:/var/www/html/storage
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    container_name: foodqr_db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: foodqr
+      MYSQL_USER: foodqr
+      MYSQL_PASSWORD: secret
+    volumes:
+      - dbdata:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: foodqr_phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: rootpassword
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+    restart: unless-stopped
+
+volumes:
+  dbdata:
+  vendor:
+  node_modules:
+  storage:

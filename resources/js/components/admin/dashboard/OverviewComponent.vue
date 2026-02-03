@@ -14,46 +14,46 @@
         </div>
         <div class="row">
             <div class="col-12 sm:col-6 xl:col-3">
-                <div class="p-4 rounded-lg flex items-center gap-4 bg-[#FF4F99]">
-                    <div class="w-12 h-12 rounded-full flex items-center justify-center bg-white">
-                        <i class="lab lab-total-sale lab-font-size-24 lab-color-pink"></i>
+                <div class="p-4 rounded-lg flex items-center gap-4 bg-white shadow-md border-l-4 border-pink-400">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center bg-pink-50 text-pink-600">
+                        <i class="lab lab-total-sale lab-font-size-20"></i>
                     </div>
                     <div>
-                        <h3 class="font-medium text-white">{{ $t('label.total_sales') }}</h3>
-                        <h4 class="font-semibold text-[22px] leading-[34px] text-white">{{ total_sales }}</h4>
+                        <h3 class="font-medium text-gray-600">{{ $t('label.total_sales') }}</h3>
+                        <h4 class="font-semibold text-[22px] leading-[34px] text-gray-900">{{ total_sales }}</h4>
                     </div>
                 </div>
             </div>
             <div class="col-12 sm:col-6 xl:col-3">
-                <div class="p-4 rounded-lg flex items-center gap-4 bg-[#8262FE]">
-                    <div class="w-12 h-12 rounded-full flex items-center justify-center bg-white">
-                        <i class="lab lab-total-orders lab-font-size-24 lab-color-portage"></i>
+                <div class="p-4 rounded-lg flex items-center gap-4 bg-white shadow-md border-l-4 border-purple-500">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center bg-purple-50 text-purple-600">
+                        <i class="lab lab-total-orders lab-font-size-20"></i>
                     </div>
                     <div>
-                        <h3 class="font-medium text-white">{{ $t('label.total_orders') }}</h3>
-                        <h4 class="font-semibold text-[22px] leading-[34px] text-white">{{ total_orders }}</h4>
+                        <h3 class="font-medium text-gray-600">{{ $t('label.total_orders') }}</h3>
+                        <h4 class="font-semibold text-[22px] leading-[34px] text-gray-900">{{ total_orders }}</h4>
                     </div>
                 </div>
             </div>
             <div class="col-12 sm:col-6 xl:col-3">
-                <div class="p-4 rounded-lg flex items-center gap-4 bg-[#567DFF]">
-                    <div class="w-12 h-12 rounded-full flex items-center justify-center bg-white">
-                        <i class="lab lab-total-customers lab-font-size-24 lab-color-cornflower-blue"></i>
+                <div class="p-4 rounded-lg flex items-center gap-4 bg-white shadow-md border-l-4 border-blue-500">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center bg-blue-50 text-blue-600">
+                        <i class="lab lab-total-customers lab-font-size-20"></i>
                     </div>
                     <div>
-                        <h3 class="font-medium text-white">{{ $t('label.total_customers') }}</h3>
-                        <h4 class="font-semibold text-[22px] leading-[34px] text-white">{{ total_customers }}</h4>
+                        <h3 class="font-medium text-gray-600">{{ $t('label.total_customers') }}</h3>
+                        <h4 class="font-semibold text-[22px] leading-[34px] text-gray-900">{{ total_customers }}</h4>
                     </div>
                 </div>
             </div>
             <div class="col-12 sm:col-6 xl:col-3">
-                <div class="p-4 rounded-lg flex items-center gap-4 bg-[#A953FF]">
-                    <div class="w-12 h-12 rounded-full flex items-center justify-center bg-white">
-                        <i class="lab lab-total-menu-items lab-font-size-24 lab-color-heliotrope"></i>
+                <div class="p-4 rounded-lg flex items-center gap-4 bg-white shadow-md border-l-4 border-indigo-500">
+                    <div class="w-12 h-12 rounded-full flex items-center justify-center bg-indigo-50 text-indigo-600">
+                        <i class="lab lab-total-menu-items lab-font-size-20"></i>
                     </div>
                     <div>
-                        <h3 class="font-medium text-white">{{ $t('label.total_menu_items') }}</h3>
-                        <h4 class="font-semibold text-[22px] leading-[34px] text-white">{{ total_menu_items }}</h4>
+                        <h3 class="font-medium text-gray-600">{{ $t('label.total_menu_items') }}</h3>
+                        <h4 class="font-semibold text-[22px] leading-[34px] text-gray-900">{{ total_menu_items }}</h4>
                     </div>
                 </div>
             </div>

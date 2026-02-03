@@ -6,17 +6,14 @@
                 <div class="db-card-title">{{ $t('label.most_popular_items') }}</div>
             </div>
             <div class="db-card-body">
-                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-[18px]">
-                    <li class="w-full flex rounded-xl border border-[#D9DBE9]" v-if="popular_items.length > 0"
-                        v-for="popular_item in popular_items" :key="popular_item">
-                        <img class="flex w-20 h-20 object-cover rounded-l-[11px]" :src="popular_item.thumb" alt="product">
-                        <div class="py-2 px-3 flex flex-col justify-between overflow-hidden">
-                            <h4 class="text-sm overflow-hidden whitespace-nowrap text-ellipsis font-medium capitalize">
-                                {{ popular_item.name }}</h4>
-                            <h5 class="text-xs font-medium capitalize text-[#008BBA]">
-                                {{ popular_item.category_name }}
-                            </h5>
-                            <h6 class="text-sm font-bold">{{ popular_item.currency_price }}</h6>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <li v-if="popular_items.length > 0" v-for="popular_item in popular_items" :key="popular_item"
+                        class="w-full flex rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                        <img class="w-24 h-24 object-cover" :src="popular_item.thumb" alt="product">
+                        <div class="py-3 px-4 flex flex-col justify-between overflow-hidden">
+                            <h4 class="text-sm font-medium truncate">{{ popular_item.name }}</h4>
+                            <h5 class="text-xs font-medium text-indigo-600 truncate">{{ popular_item.category_name }}</h5>
+                            <h6 class="text-sm font-bold text-gray-800">{{ popular_item.currency_price }}</h6>
                         </div>
                     </li>
                 </ul>

@@ -6,11 +6,11 @@
                 <div class="db-card-title">{{ $t('label.featured_items') }}</div>
             </div>
             <div class="db-card-body">
-                <ul class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    <li v-if="featured_items.length > 0" v-for="featured_item in featured_items" :key="featured_item"
-                        class="w-full rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
-                        <img class="w-full h-28 object-cover" :src="featured_item.thumb" alt="product">
-                        <h4 class="text-sm p-3 font-medium text-gray-800 truncate">{{ featured_item.name }}</h4>
+                <ul class="grid grid-cols-2 sm:grid-cols-4 gap-[18px]">
+                    <li class="w-full rounded-xl border border-[#D9DBE9]" v-if="featured_items.length > 0"
+                        v-for="featured_item in featured_items" :key="featured_item">
+                        <img class="w-full rounded-t-[11px]" :src="featured_item.thumb" alt="product">
+                        <h4 class="text-xs p-2 font-medium capitalize">{{ featured_item.name }}</h4>
                     </li>
                 </ul>
             </div>

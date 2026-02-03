@@ -7,36 +7,13 @@
     </div>
 
     <div class="mb-8">
-        <div class="bg-white rounded-lg shadow-md p-6">
-            <div class="flex items-center justify-between gap-6">
-                <div>
-                    <h3 class="font-semibold text-2xl text-primary">{{ visitorMessage() }}</h3>
-                    <h4 class="font-medium text-lg text-gray-700">{{ authInfo.name }}</h4>
-                </div>
-                <div class="flex-1">
-                    <div class="flex justify-end items-center gap-4 flex-wrap">
-                        <div class="flex items-center gap-3 bg-gray-50 rounded-md px-4 py-2 shadow-sm">
-                            <div class="text-sm text-gray-500">{{ $t('label.total_sales') }}</div>
-                            <div class="font-semibold text-gray-900">{{ total_sales || '-' }}</div>
-                        </div>
-                        <div class="flex items-center gap-3 bg-gray-50 rounded-md px-4 py-2 shadow-sm">
-                            <div class="text-sm text-gray-500">{{ $t('label.total_orders') }}</div>
-                            <div class="font-semibold text-gray-900">{{ total_orders || '-' }}</div>
-                        </div>
-                        <div class="flex items-center gap-3 bg-gray-50 rounded-md px-4 py-2 shadow-sm">
-                            <div class="text-sm text-gray-500">{{ $t('label.total_customers') }}</div>
-                            <div class="font-semibold text-gray-900">{{ total_customers || '-' }}</div>
-                        </div>
-                        <button @click="refreshHeader" class="db-btn-fill primary db-btn-sm">{{ $t('label.refresh') }}</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h3 class="font-semibold text-[26px] leading-10 capitalize text-primary">{{ visitorMessage() }}</h3>
+        <h4 class="font-medium text-[22px] leading-[34px] capitalize">{{ authInfo.name }}</h4>
     </div>
     <!--========OVERVIEW START=============-->
     <OverviewComponent />
     <!--========OVERVIEW END=============-->
-    <div class="row gap-6">
+    <div class="row">
         <!--========SALES SUMMARY START=============-->
         <SalesSummaryComponent />
         <!--========SALES SUMMARY END=============-->
@@ -80,10 +57,6 @@ export default {
                 isActive: false,
             },
             demo: ENV.DEMO
-            ,
-            total_sales: null,
-            total_orders: null,
-            total_customers: null,
         };
     },
     computed: {
@@ -104,23 +77,6 @@ export default {
                 greet = this.$t('message.good_evening');
             }
             return greet;
-        }
-        ,
-        refreshHeader: function () {
-            this.loading.isActive = true;
-            const date = { first_date: this.first_date || '', last_date: this.last_date || '' };
-            // fetch totals (reuse dashboard store actions)
-            this.$store.dispatch('dashboard/totalSales', date).then(res => {
-                this.total_sales = res.data.data.total_sales;
-            }).catch(() => {});
-            this.$store.dispatch('dashboard/totalOrders', date).then(res => {
-                this.total_orders = res.data.data.total_orders;
-            }).catch(() => {});
-            this.$store.dispatch('dashboard/totalCustomers', date).then(res => {
-                this.total_customers = res.data.data.total_customers;
-            }).catch(() => {}).finally(() => {
-                this.loading.isActive = false;
-            });
         }
     }
 }

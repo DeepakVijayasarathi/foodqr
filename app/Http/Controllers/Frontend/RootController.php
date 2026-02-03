@@ -15,8 +15,7 @@ class RootController extends Controller
     {
         $analytics =  Analytic::with('analyticSections')->where(['status' => Status::ACTIVE])->get();
         $themeFavicon = ThemeSetting::where(['key' => 'theme_favicon_logo'])->first();
-        // use null-safe operator in case there is no theme setting record
-        $favIcon = $themeFavicon?->faviconLogo ?? null;
+        $favIcon = $themeFavicon->faviconLogo;
         return view('master', ['analytics' => $analytics, 'favicon' => $favIcon]);
     }
 }
